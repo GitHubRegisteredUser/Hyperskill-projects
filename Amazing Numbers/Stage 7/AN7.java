@@ -1,7 +1,6 @@
 package Hyperskill.AmazingNumbers;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class AN7 {
 
@@ -258,16 +257,13 @@ public class AN7 {
     }
 
     static boolean checkExclusive(String s) {
-        if ((s.toLowerCase().contains("even") && s.toLowerCase().contains("odd"))
-                || (s.toLowerCase().contains("odd") && s.toLowerCase().contains("even"))) {
+        if (s.toLowerCase().contains("even") && s.toLowerCase().contains("odd")) {
             System.out.println("The request contains mutually exclusive properties: [ODD, EVEN]");
             return true;
-        } else if ((s.toLowerCase().contains("duck") && s.toLowerCase().contains("spy"))
-                || (s.toLowerCase().contains("spy") && s.toLowerCase().contains("duck"))) {
+        } else if (s.toLowerCase().contains("duck") && s.toLowerCase().contains("spy")) {
             System.out.println("The request contains mutually exclusive properties: [SPY, DUCK]");
             return true;
-        } else if ((s.toLowerCase().contains("square") && s.toLowerCase().contains("sunny"))
-                || (s.toLowerCase().contains("sunny") && s.toLowerCase().contains("square"))) {
+        } else if (s.toLowerCase().contains("square") && s.toLowerCase().contains("sunny")) {
             System.out.println("The request contains mutually exclusive properties: [SQUARE, SUNNY]");
             return true;
         }
