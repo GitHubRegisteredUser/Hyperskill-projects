@@ -111,8 +111,8 @@ public class Battleship1 {
 
 class Ship {
 
-    private final String name;
-    private final int length;
+    private String name;
+    private int length;
 
     Ship(String name, int length) {
         this.name = name;
