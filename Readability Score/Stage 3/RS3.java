@@ -7,20 +7,26 @@ import java.util.Scanner;
 public class RS3 {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(args[0]));
-        String input = "";
-        while (scanner.hasNext()) {
-            input += scanner.nextLine();
-        }
-        double score = calcScore(countS(input), countW(input), countC(input));
+        if (args.length > 0 && args[0] != null) {
+            try {
+                Scanner scanner = new Scanner(new File(args[0]));
+                String input = "";
+                while (scanner.hasNext()) {
+                    input += scanner.nextLine();
+                }
+                double score = calcScore(countS(input), countW(input), countC(input));
 
-        System.out.println("The text is:");
-        System.out.println(input);
-        System.out.println("Words: " + countW(input));
-        System.out.println("Sentences: " + countS(input));
-        System.out.println("Characters: " + countC(input));
-        System.out.println("The score is: " + String.format("%.2f", score));
-        calcAge(score);
+                System.out.println("The text is:");
+                System.out.println(input);
+                System.out.println("Words: " + countW(input));
+                System.out.println("Sentences: " + countS(input));
+                System.out.println("Characters: " + countC(input));
+                System.out.println("The score is: " + String.format("%.2f", score));
+                calcAge(score);
+            } catch (FileNotFoundException e) {
+                e.getMessage();
+            }
+        }
     }
 
     static int countS(String i) {
