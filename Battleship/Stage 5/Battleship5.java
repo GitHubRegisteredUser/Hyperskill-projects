@@ -6,43 +6,10 @@ public class Battleship5 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String[][] field1 = new String[12][12];
-        String[][] field2 = new String[12][12];
-        String[][] hiddenField1 = new String[12][12];
-        String[][] hiddenField2 = new String[12][12];
-        for (int i = 0; i < field1.length; i++) {
-            for (int j = 0; j < field1[i].length; j++) {
-                if (i == 0 && j == 0) {
-                    field1[i][j] = " ";
-                    field2[i][j] = " ";
-                    hiddenField1[i][j] = " ";
-                    hiddenField2[i][j] = " ";
-                } else if (i == 11 || j == 11) {
-                    field1[i][j] = "";
-                    field2[i][j] = "";
-                    hiddenField1[i][j] = "";
-                    hiddenField2[i][j] = "";
-                } else if (i == 0) {
-                    field1[i][j] = Integer.toString(j);
-                    field2[i][j] = Integer.toString(j);
-                    hiddenField1[i][j] = Integer.toString(j);
-                    hiddenField2[i][j] = Integer.toString(j);
-                } else if (j == 0) {
-                    char c = (char) (64 + i);
-                    field1[i][j] = Character.toString(c);
-                    field2[i][j] = Character.toString(c);
-                    hiddenField1[i][j] = Character.toString(c);
-                    hiddenField2[i][j] = Character.toString(c);
-                } else {
-                    field1[i][j] = "~";
-                    field2[i][j] = "~";
-                    hiddenField1[i][j] = "~";
-                    hiddenField2[i][j] = "~";
-                }
-                System.out.print(field1[i][j] + " ");
-            }
-            System.out.println("");
-        }
+        String[][] field1 = createField();
+        String[][] field2 = createField();
+        String[][] hiddenField1 = createField();
+        String[][] hiddenField2 = createField();
 
         Ship[] ship = {new Ship("Aircraft Carrier", 5), new Ship("Battleship", 4),
             new Ship("Submarine", 3), new Ship("Cruiser", 3), new Ship("Destroyer", 2)};
@@ -125,6 +92,27 @@ public class Battleship5 {
             scanner.nextLine();
             scanner.nextLine();
         }
+    }
+
+    static String[][] createField() {
+        String[][] field = new String[12][12];
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                if (i == 0 && j == 0) {
+                    field[i][j] = " ";
+                } else if (i == 11 || j == 11) {
+                    field[i][j] = "";
+                } else if (i == 0) {
+                    field[i][j] = Integer.toString(j);
+                } else if (j == 0) {
+                    char c = (char) (64 + i);
+                    field[i][j] = Character.toString(c);
+                } else {
+                    field[i][j] = "~";
+                }
+            }
+        }
+        return field;
     }
 
     static void printField(String[][] array) {
